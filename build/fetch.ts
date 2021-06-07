@@ -9,13 +9,21 @@ import { loadFile } from '../src'
 import prefixes from '../src/prefixes'
 import { NamedNode } from 'rdf-js'
 import DatasetExt from 'rdf-ext/lib/Dataset'
-import rawFetch from '../src/fetch'
+import fileFetch from 'file-fetch'
+import httpFetch from 'node-fetch'
+import protoFetch from 'proto-fetch'
 import { overrides, Override } from './overrides'
 
 interface Prefix {
   prefix: string;
   uri: string;
 }
+
+const rawFetch = protoFetch({
+  file: fileFetch,
+  http: httpFetch,
+  https: httpFetch
+})
 
 // this script gets your IP banned from w3.org unless you wait long enough between w3.org requests
 const w3Timeout = 5000
