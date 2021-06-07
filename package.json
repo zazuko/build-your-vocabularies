@@ -7,7 +7,7 @@
   "module": "index.mjs",
   "browser": "index.mjs",
   "bin": {
-    "rdf-vocab": "bin/vocab.js"
+    "my-vocab": "bin/vocab.js"
   },
   "exports": {
     ".": {
@@ -64,16 +64,11 @@
     "build": "run-p build:*",
     "prepack": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zazuko/build-your-vocabularies.git"
-  },
-  "author": "Victor Felder <victor@draft.li> (https://draft.li)",
+  "author": "Zazuko GmbH",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zazuko/build-your-vocabularies/issues"
   },
-  "homepage": "https://github.com/zazuko/build-your-vocabularies#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
