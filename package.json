@@ -1,0 +1,126 @@
+{
+  "name": "@zazuko/build-your-vocabularies",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Access your vocabularies as datasets or n-quads",
+  "main": "index.js",
+  "module": "index.mjs",
+  "browser": "index.mjs",
+  "bin": {
+    "rdf-vocab": "bin/vocab.js"
+  },
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    },
+    "./expand": {
+      "require": "./expand.js",
+      "import": "./expand.mjs"
+    },
+    "./expandWithCheck": {
+      "require": "./expandWithCheck.js",
+      "import": "./expandWithCheck.mjs"
+    },
+    "./shrink": {
+      "require": "./shrink.js",
+      "import": "./shrink.mjs"
+    },
+    "./vocabularies": {
+      "require": "./vocabularies.js",
+      "import": "./vocabularies.mjs"
+    },
+    "./prefixes": {
+      "require": "./prefixes.js",
+      "import": "./prefixes.mjs"
+    },
+    "./datasets": {
+      "require": "./datasets/index.js",
+      "import": "./datasets/index.mjs"
+    },
+    "./datasets/*": {
+      "require": "./datasets/*.js",
+      "import": "./datasets/*.mjs"
+    }
+  },
+  "files": [
+    "bin",
+    "loadDataset",
+    "datasets",
+    "ontologies",
+    "*.js",
+    "*.mjs",
+    "*.d.ts",
+    "*.d.ts.map"
+  ],
+  "scripts": {
+    "prefetch": "mkdirp ontologies",
+    "fetch": "ts-node build/fetch.ts --indexBase https://prefix.example.com/",
+    "lint": "eslint . --ext .js,.ts --ignore-path .gitignore --quiet",
+    "pretest": "npm run lint",
+    "prepare": "mkdirp src/datasets; ts-node build/modules",
+    "build:node": "tsc",
+    "build:modern": "babel src --out-dir . --extensions .ts --out-file-extension .mjs --ignore *.test.js --ignore src/loadDataset/index.ts",
+    "build": "run-p build:*",
+    "prepack": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zazuko/build-your-vocabularies.git"
+  },
+  "author": "Victor Felder <victor@draft.li> (https://draft.li)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zazuko/build-your-vocabularies/issues"
+  },
+  "homepage": "https://github.com/zazuko/build-your-vocabularies#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-typescript": "^7.13.0",
+    "@rdfjs/fetch-lite": "^2.1.0",
+    "@rdfjs/formats-common": "^2.1.0",
+    "@rdfjs/serializer-rdfjs": "^0.0.4",
+    "@types/chai": "^4.2.14",
+    "@types/node-fetch": "^2.5.10",
+    "@types/rdf-ext": "^1.3.2",
+    "@types/rdf-js": "^2.0.8",
+    "@types/rdfjs__fetch-lite": "^2.0.1",
+    "@types/rdfjs__formats-common": "^2.0.0",
+    "@types/rdfjs__parser-n3": "^1.1.2",
+    "@types/rdfjs__serializer-rdfjs": "^0.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
+    "babel-plugin-add-import-extension": "^1.5.0",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "file-fetch": "^1.6.1",
+    "nodeify-fetch": "^2.2.1",
+    "npm-run-all": "^4.1.5",
+    "proto-fetch": "^1.0.0",
+    "rdfxml-streaming-parser": "^1.4.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@rdfjs/parser-n3": "^1.1.4",
+    "commander": "^5.0.0",
+    "pkg-dir": "^5.0.0",
+    "rdf-ext": "^1.3.1",
+    "readable-stream": "^3.6.0",
+    "string-to-stream": "^3.0.1"
+  },
+  "keywords": [
+    "rdf",
+    "rdfjs",
+    "prefix",
+    "namespace",
+    "ontologies",
+    "vocabularies"
+  ]
+}
