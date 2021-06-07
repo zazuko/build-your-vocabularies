@@ -14,18 +14,6 @@
       "require": "./index.js",
       "import": "./index.mjs"
     },
-    "./expand": {
-      "require": "./expand.js",
-      "import": "./expand.mjs"
-    },
-    "./expandWithCheck": {
-      "require": "./expandWithCheck.js",
-      "import": "./expandWithCheck.mjs"
-    },
-    "./shrink": {
-      "require": "./shrink.js",
-      "import": "./shrink.mjs"
-    },
     "./vocabularies": {
       "require": "./vocabularies.js",
       "import": "./vocabularies.mjs"
@@ -104,6 +92,7 @@
   },
   "dependencies": {
     "@rdfjs/parser-n3": "^1.1.4",
+    "@zazuko/rdf-vocabularies": "*",
     "commander": "^5.0.0",
     "pkg-dir": "^5.0.0",
     "rdf-ext": "^1.3.1",
