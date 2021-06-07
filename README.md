@@ -24,4 +24,11 @@ Having created a repository from this template, follow the instructions below to
 
 ## Usage
 
-The final product will be just like `@zazuko/rdf-vocabularies`. Check [its readme](https://github.com/zazuko/rdf-vocabularies#usage) for detailed usage instructions.
+The final product will be an extension to the `@zazuko/rdf-vocabularies`, albeit with side effects. Simply import in your project the to have you prefixes added to the default selection.
+
+```javascript
+// replace with your package name
+import '@zazuko/build-your-vocabularies'
+```
+
+Check [`@zazuko/rdf-vocabularies` readme](https://github.com/zazuko/rdf-vocabularies#usage) for detailed usage instructions.
