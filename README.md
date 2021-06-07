@@ -31,4 +31,14 @@ The final product will be an extension to the `@zazuko/rdf-vocabularies`, albeit
 import '@zazuko/build-your-vocabularies'
 ```
 
+Additionally, modules exporting `@rdfjs/namespace` builders will be generated.
+
+```javascript
+// default builders
+import { prefixA } from '@zazuko/build-your-vocabularies/builders'
+
+// strict builders prevent constructing terms which are not defined in vocabulary
+import { prefixB } from '@zazuko/build-your-vocabularies/builders/strict'
+```
+
 Check [`@zazuko/rdf-vocabularies` readme](https://github.com/zazuko/rdf-vocabularies#usage) for detailed usage instructions.

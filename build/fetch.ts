@@ -9,6 +9,7 @@ import { loadFile } from '../src'
 import prefixes from '../src/prefixes'
 import { NamedNode } from 'rdf-js'
 import DatasetExt from 'rdf-ext/lib/Dataset'
+import { DatasetIndexed } from 'rdf-dataset-indexed/dataset'
 import fileFetch from 'file-fetch'
 import httpFetch from 'node-fetch'
 import protoFetch from 'proto-fetch'
@@ -121,7 +122,7 @@ async function fetch (mappings: any, indexOnly = false) {
   return dataset
 }
 
-function firstVal (dataset: DatasetExt) {
+function firstVal (dataset: DatasetIndexed) {
   if (dataset.size) {
     const english = dataset.toArray().find(({ object }: any) => object.language === 'en')
     if (english) {
@@ -135,7 +136,7 @@ function firstVal (dataset: DatasetExt) {
   }
 }
 
-function getTitle (dataset: DatasetExt): string {
+function getTitle (dataset: DatasetIndexed): string {
   const potentialValues = [
     firstVal(dataset.match(null, rdf.namedNode(expand('dc11:title')))),
     firstVal(dataset.match(null, rdf.namedNode(expand('dcterms:title')))),
@@ -148,7 +149,7 @@ function getTitle (dataset: DatasetExt): string {
   return ''
 }
 
-function getDescription (dataset: DatasetExt): string {
+function getDescription (dataset: DatasetIndexed): string {
   const potentialValues = [
     firstVal(dataset.match(null, rdf.namedNode(expand('dc11:description')))),
     firstVal(dataset.match(null, rdf.namedNode(expand('dcterms:description')))),
