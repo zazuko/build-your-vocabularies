@@ -23,6 +23,8 @@ Having created a repository from this template, follow the instructions below to
 5. Bump version and publish your package
    * Might consider setting CI automation
 
+Check the `example` branch for inspiration
+
 ## Usage
 
 The final product will be an extension to the `@zazuko/rdf-vocabularies`, albeit with side effects. Simply import in your project the to have you prefixes added to the default selection.
