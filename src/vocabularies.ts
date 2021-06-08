@@ -6,7 +6,7 @@ import DatasetExt from 'rdf-ext/lib/Dataset'
 import ParserN3 from '@rdfjs/parser-n3'
 import { loadDatasetStream } from './loadDataset'
 
-export type Datasets = Record<keyof typeof prefixes, DatasetExt>
+export type Datasets = Partial<Record<keyof typeof prefixes, DatasetExt>>
 
 interface VocabulariesOptions {
   only?: (keyof typeof prefixes)[] | null;
@@ -38,7 +38,7 @@ export async function vocabularies (options: VocabulariesDatasetOptions | Vocabu
     })
   }
   if (!selectedPrefixes.length) {
-    selectedPrefixes = Object.keys(prefixes)
+    selectedPrefixes = Object.keys(prefixes) as any
   }
 
   const promises = selectedPrefixes.map((prefix) => loadFile(prefix, { customSelection: !!only, factory }))
