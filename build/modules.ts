@@ -16,7 +16,7 @@ async function main () {
   const datasets = await vocabularies()
   const codeModules = Object.entries(datasets)
     .map(([prefix, dataset]) => {
-      const quadArray = dataset.toArray()
+      const quadArray = dataset?.toArray() || []
       for (const quad of quadArray) {
         if (quad.object.termType === 'Literal' &&
           !quad.object.value.includes('\\\\') &&

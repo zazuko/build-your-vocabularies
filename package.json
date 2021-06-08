@@ -53,10 +53,11 @@
   "scripts": {
     "prefetch": "mkdirp ontologies",
     "fetch": "ts-node build/fetch.ts --indexBase https://prefix.example.com/",
-    "postfetch": "rdf-ns-builders generate -p ./src -o src/builders",
     "lint": "eslint . --ext .js,.ts --ignore-path .gitignore --quiet",
     "pretest": "npm run lint",
-    "prepare": "mkdirp src/datasets; ts-node build/modules",
+    "prepare:modules": "mkdirp src/datasets; ts-node build/modules",
+    "prepare:builders": "rdf-ns-builders generate -p ./src -o src/builders",
+    "prepare": "run-p prepare:*",
     "build:node": "tsc",
     "build:modern": "babel src --out-dir . --extensions .ts --out-file-extension .mjs --ignore *.test.js --ignore src/loadDataset/index.ts",
     "build": "run-p build:*",
