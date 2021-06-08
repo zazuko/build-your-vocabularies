@@ -13,4 +13,7 @@ export interface Override extends FileSpec {
 
 export const overrides: Record<string, Override> = {
   // Customize how each vocabulary is processed
+  ex: {
+    file: 'file:src/vocabulary/ex.ttl'
+  }
 }

@@ -1,5 +1,6 @@
 const prefixes = {
   // Add with your prefixes here
+  ex: 'https://example.com/vocab#'
 }
 
 type LocalPrefixes = typeof prefixes
