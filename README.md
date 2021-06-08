@@ -18,6 +18,7 @@ Having created a repository from this template, follow the instructions below to
    * local vocabularies can be created in [src/vocabulary](src/vocabulary) as RDF sources
 3. `npm run fetch`
    * optionally call as `npm run fetch -- <prefix>` to fetch+process only one
+4. Customise this readme
 4. Commit the result
 5. Bump version and publish your package
    * Might consider setting CI automation
