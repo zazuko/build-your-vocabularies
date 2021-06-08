@@ -1,4 +1,3 @@
 export default {
-  // Replace with your prefixes here
-  ex: 'https://example.com/vocab#'
+  // Add with your prefixes here
 }
