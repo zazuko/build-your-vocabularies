@@ -75,7 +75,7 @@
     "@rdfjs/fetch-lite": "^2.1.0",
     "@rdfjs/formats-common": "^2.1.0",
     "@rdfjs/serializer-rdfjs": "^0.0.4",
-    "@tpluscode/rdf-ns-builders": "^0.4.5",
+    "@tpluscode/rdf-ns-builders": "^1.0.0",
     "@types/chai": "^4.2.14",
     "@types/file-fetch": "^1.6.0",
     "@types/node-fetch": "^2.5.10",
