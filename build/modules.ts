@@ -1,7 +1,8 @@
 import RdfjsSerializer from '@rdfjs/serializer-rdfjs'
 import fs from 'fs'
-import { vocabularies } from '../src'
 import QuadExt from 'rdf-ext/lib/Quad'
+import { identifier } from 'safe-identifier'
+import { vocabularies } from '../src'
 
 const rdfjsSerializer = new RdfjsSerializer({ module: 'ts' })
 
@@ -33,7 +34,7 @@ async function main () {
   await Promise.all(codeModules)
 
   const index = Object.keys(datasets).reduce((source, prefix) => {
-    return `${source}\nexport { default as ${prefix} } from './${prefix}'`
+    return `${source}\nexport { default as ${identifier(prefix)} } from './${prefix}'`
   }, '')
   fs.writeFileSync('./src/datasets/index.ts', index)
 }
