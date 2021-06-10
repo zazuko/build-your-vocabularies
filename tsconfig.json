@@ -19,6 +19,8 @@
   },
   "files": [
     "src/index.ts",
-    "src/datasets/index.ts"
+    "src/datasets/index.ts",
+    "src/builders/index.ts",
+    "src/builders/strict.ts"
   ]
 }
