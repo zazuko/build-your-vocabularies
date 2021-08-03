@@ -220,7 +220,8 @@ async function main (prefixesToDownload: string[], { indexBase }: { indexBase: s
   }
 
   // merge prefixes with overrides
-  const merged = Object.entries(prefixes).reduce<Record<string, Prefix & Override>>((current, [prefix, uri]) => {
+  const entries: [keyof typeof prefixes, string][] = Object.entries(prefixes) as any
+  const merged = entries.reduce<Record<string, Prefix & Override>>((current, [prefix, uri]) => {
     const override = overrides[prefix]
     return {
       ...current,
