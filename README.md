@@ -37,11 +37,11 @@ import '@zazuko/build-your-vocabularies'
 Additionally, modules exporting `@rdfjs/namespace` builders will be generated.
 
 ```javascript
-// default builders
+// default builders prevent constructing terms which are not defined in vocabulary
 import { prefixA } from '@zazuko/build-your-vocabularies/builders'
 
-// strict builders prevent constructing terms which are not defined in vocabulary
-import { prefixB } from '@zazuko/build-your-vocabularies/builders/strict'
+// use loose builders for a free-for-all, allowing custom terms
+import { prefixB } from '@zazuko/build-your-vocabularies/builders/loose'
 ```
 
 Check [`@zazuko/rdf-vocabularies` readme](https://github.com/zazuko/rdf-vocabularies#usage) for detailed usage instructions.
