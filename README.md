@@ -15,7 +15,7 @@ Having created a repository from this template, follow the instructions below to
    * add their prefix/namespace pairs in [src/prefixes.ts](src/prefixes.ts)
    * if necessary, set up their fetch routine in [`build/overrides.ts`](build/overrides.ts)
    * see [here](https://github.com/zazuko/rdf-vocabularies/blob/master/overrides.ts) for examples of various overrides
-   * local vocabularies can be created in [src/vocabulary](src/vocabulary) as RDF sources
+   * local vocabularies can be added as RDF sources in a local directory, such as `src/vocabulary`, and then linked to `file:` URIs in the overrides file. See the [example]([/example/build/overrides.ts#L17](https://github.com/zazuko/build-your-vocabularies/blob/example/build/overrides.ts#L17))
 3. `npm run fetch`
    * optionally call as `npm run fetch -- <prefix>` to fetch+process only one
 4. Customise this readme
@@ -24,6 +24,10 @@ Having created a repository from this template, follow the instructions below to
    * Might consider setting CI automation
 
 Check the `example` branch for inspiration
+
+## Updates
+
+Any time the vocabularies change, run `yarn fetch` to update them. You can also run `yarn fetch prefix` to update only one vocabulary.
 
 ## Usage
 
